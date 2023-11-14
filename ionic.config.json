@@ -1,0 +1,7 @@
+{
+  "name": "appPageWithData",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
