@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { DataResolverService } from './services/data-resolver.service';
 
 const routes: Routes = [
   {
@@ -10,6 +11,17 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'details',
+    loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
+  },
+  {
+    path: 'details/:id',
+    resolve:{
+      bookid: DataResolverService
+    },
+    loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   },
 ];
 
